@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-LATEST_VERSION=$(curl --silent "https://api.github.com/repos/cerbos/cerbos/releases/latest" | jq -r .tag_name)
-
-docker run -i -t -p 3592:3592 -p 3593:3593 -e CERBOS_NO_TELEMETRY=1 \
-  -v $(pwd)/policies:/policies \
-  -v $(pwd)/config.yaml:/config.yaml \
-  ghcr.io/cerbos/cerbos:"${LATEST_VERSION:1}" server --config=/config.yaml
+docker run --rm --name cerbos \
+  -p 3592:3592 -p 3593:3593 \
+  -v /tmp -v /.cache \
+  -e CERBOS_CLOUD_BUNDLE="latest" \
+  -e CERBOS_CLOUD_SECRET_KEY="CERBOS-1G8HE6FLTFV5H-8NDRPCX8W94JAHEQDPCMKXXQS8SSS9CYWEQ9KPFHAQQ6AP48SGMQ49TGDZ" \
+  -e CERBOS_CLOUD_CLIENT_ID="WRM3YUQKUA1L" \
+  -e CERBOS_CLOUD_CLIENT_SECRET="cerbos_q0PTJxEK8ImNkBf0olS+07OUyARhdDLGjqUftaYIbMI" \
+  ghcr.io/cerbos/cerbos:0.26.0 server

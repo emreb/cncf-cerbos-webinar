@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx ts-node index.ts",
+    "start-complete": "npx ts-node index.complete.ts"
   },
   "author": "",
   "license": "ISC",

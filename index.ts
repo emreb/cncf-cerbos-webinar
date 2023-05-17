@@ -16,7 +16,23 @@ app.get("/expenses/:id", (req, res) => {
   const user = req.user;
   const expense = expenses[req.params.id];
   if (!expense) return res.status(404).json({ error: "Expense not found" });
-  return res.json(expense);
+
+  if(user.roles.includes("ADMIN")) {
+    // the action
+    return res.json(expense);
+  }
+
+  if(user.roles.includes("USER") && user.attributes.department==="FINANCE") {
+    return res.json(expense);
+  }
+
+  if(user.roles.includes("USER") && user.id === expense.attributes.ownerId) {
+    return res.json(expense);
+  }
+
+  return res.status(403).json({"error": "Action not permitted"})
+
+  
 });
 
 // View who approved an expense

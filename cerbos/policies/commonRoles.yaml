@@ -24,6 +24,15 @@ derivedRoles:
           expr: request.principal.attr.department == "FINANCE"
 
 
+    # If the principal belongs to group `MANAGER` in a request, and the `principal`s
+    # `department` attribute is "FINANCE",then the `principal` is considered
+    # as `FINANCE_MANAGER` role within Cerbos for the policy evaluation.
+    - name: FINANCE_MANAGER
+      parentRoles: ["MANAGER"]
+      condition:
+        match:
+          expr: request.principal.attr.department == "FINANCE"
+
 
 
 

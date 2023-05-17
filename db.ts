@@ -66,7 +66,7 @@ export const users: Record<string, User> = {
     "id": "derek",
     "roles": [
       "USER",
-      // "MANAGER"
+      "MANAGER"
     ],
     "attributes": {
       "department": "FINANCE",

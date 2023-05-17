@@ -89,7 +89,6 @@ export const expenses: Record<string, Expense> = {
   },
   "expense2": {
     "id": "expense2",
-    
     "attributes": {
       "ownerId": "sally",
       "createdAt": "2021-10-01T10:00:00.021-05:00",
@@ -107,7 +106,7 @@ export const expenses: Record<string, Expense> = {
       "createdAt": "2021-10-01T10:00:00.021-05:00",
       "vendor": "Global Airlines",
       "region": "EMEA",
-      "amount": 12000,
+      "amount": 80000,
       "status": "OPEN"
     }
   },

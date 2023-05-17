@@ -60,7 +60,7 @@ app.post("/expenses/:id/approve", async (req, res) => {
   const permissions = await cerbos.checkResource({
     principal: req.user,
     resource: { kind: "expense", ...expense },
-    actions: ["view"],
+    actions: ["approve"],
   });
 
   if (!permissions.isAllowed("approve")) {

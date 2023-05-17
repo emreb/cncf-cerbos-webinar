@@ -8,8 +8,9 @@ app.use(express.json());
 const cerbos = new Cerbos("localhost:3593", { tls: false });
 
 app.use((req, res, next) => {
-  if (!req.headers["user"]) return res.status(403).end();
-  req.user = users[req.headers["user"][0]];
+  if (!req.headers["user"])
+    return res.status(403).json({ error: "no user header provided" });
+  req.user = users[req.headers.user as string];
   next();
 });
 

@@ -1,8 +1,13 @@
 server:
   httpListenAddr: ":3592"
   grpcListenAddr: ":3593"
+  logRequestPayloads: true
 storage:
   driver: "disk"
   disk:
     directory: /policies
     watchForChanges: true
+audit:
+  enabled: true # Set to false to completely disable audit logging.
+  accessLogsEnabled: true # Log API access attempts
+  decisionLogsEnabled: true # Log policy decisions

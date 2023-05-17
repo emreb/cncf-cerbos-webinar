@@ -8,4 +8,4 @@ docker run --rm --name cerbos -i -t \
   -e CERBOS_CLOUD_CLIENT_ID="WRM3YUQKUA1L" \
   -e CERBOS_CLOUD_CLIENT_SECRET="cerbos_q0PTJxEK8ImNkBf0olS+07OUyARhdDLGjqUftaYIbMI" \
   -e CERBOS_NO_TELEMETRY=1 \
-  ghcr.io/cerbos/cerbos:0.26.0 server
+  ghcr.io/cerbos/cerbos:0.26.0 server --set=server.logRequestPayloads=true

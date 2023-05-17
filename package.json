@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx ts-node index.ts",
-    "start-complete": "npx ts-node index.complete.ts"
+    "start": "npx nodemon index.ts",
+    "start-hardcoded": "npx nodemon index.hardcoded.ts",
+    "start-complete": "npx nodemon index.complete.ts"
   },
   "author": "",
   "license": "ISC",

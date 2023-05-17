@@ -10,7 +10,7 @@ export interface User {
   id: string;
   roles: ("USER" | "ADMIN" | "MANAGER")[];
   attributes: {
-    department: string;
+    department: "FINANCE" | "IT" | "SALES";
     region?: string;
   };
 }
@@ -21,5 +21,9 @@ export interface Expense {
     amount: number;
     ownerId: string;
     status: "OPEN" | "APPROVED" | "REJECTED";
+    createdAt: string,
+    region: "EMEA" | "NA",
+    vendor: string
+    approvedBy?: string
   };
 }

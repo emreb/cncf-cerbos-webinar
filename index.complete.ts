@@ -48,7 +48,7 @@ app.get("/expenses/:id/approver", async (req, res) => {
   }
 
   // do the action
-  return res.json(expense);
+  return res.json({ approvedBy: expense.attributes.approvedBy });
 });
 
 // Approve an expense
@@ -111,4 +111,3 @@ app.delete("/expenses/:id", async (req, res) => {
 app.listen(3000, () => {
   console.log("The application is listening on port 3000!");
 });
-

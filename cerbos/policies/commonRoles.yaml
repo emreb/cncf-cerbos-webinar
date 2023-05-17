@@ -23,20 +23,49 @@ derivedRoles:
         match:
           expr: request.principal.attr.department == "FINANCE"
 
-    # If the principal belongs to group `MANAGER` in a request, and the `principal`s
-    # `department` attribute is "FINANCE",then the `principal` is considered
-    # as `FINANCE_MANAGER` role within Cerbos for the policy evaluation.
-    - name: FINANCE_MANAGER
-      parentRoles: ["MANAGER"]
-      condition:
-        match:
-          expr: request.principal.attr.department == "FINANCE"
 
-    # If the principal belongs to group `MANAGER` in a request, and the `principal`s
-    # `region` attribute matches `resource`s `region` attribute, then the `principal`
-    # is considered as `REGION_MANAGER` role within Cerbos for the policy evaluation.
-    - name: REGION_MANAGER
-      parentRoles: ["MANAGER"]
-      condition:
-        match:
-          expr: request.resource.attr.region == request.principal.attr.region
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # # If the principal belongs to group `MANAGER` in a request, and the `principal`s
+    # # `department` attribute is "FINANCE",then the `principal` is considered
+    # # as `FINANCE_MANAGER` role within Cerbos for the policy evaluation.
+    # - name: FINANCE_MANAGER
+    #   parentRoles: ["MANAGER"]
+    #   condition:
+    #     match:
+    #       expr: request.principal.attr.department == "FINANCE"
+
+    # # If the principal belongs to group `MANAGER` in a request, and the `principal`s
+    # # `region` attribute matches `resource`s `region` attribute, then the `principal`
+    # # is considered as `REGION_MANAGER` role within Cerbos for the policy evaluation.
+    # - name: REGION_MANAGER
+    #   parentRoles: ["MANAGER"]
+    #   condition:
+    #     match:
+    #       expr: request.resource.attr.region == request.principal.attr.region

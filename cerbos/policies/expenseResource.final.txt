@@ -24,6 +24,7 @@ resourcePolicy:
       derivedRoles:
         - OWNER
         - FINANCE
+        - REGION_MANAGER
 
     # A `principal` that belongs to any of these groups "OWNER" or "FINANCE" is
     # allowed to view the approver field via "view:approver" action.
@@ -31,6 +32,7 @@ resourcePolicy:
       effect: EFFECT_ALLOW
       derivedRoles:
         - FINANCE
+        - FINANCE_MANAGER
 
     # A `principal` that owns the resource can view the approver if its is approved
     - actions: ["view:approver"]
@@ -56,8 +58,21 @@ resourcePolicy:
         match:
           expr: request.resource.attr.status == "OPEN"
 
+    # A `principal` that belongs to "FINANCE_MANAGER" role is allowed to perform "approve"
+    # for any amount if they did not create it
+    - actions: ["approve"]
+      effect: EFFECT_ALLOW
+      derivedRoles:
+        - FINANCE_MANAGER
+      condition:
+        match:
+          all:
+            of:
+              - expr: request.resource.attr.ownerId != request.principal.id
+              - expr: request.resource.attr.status == "OPEN"
+
     # A `principal` that belongs to "FINANCE" role is allowed to perform "approve"
-    # action if they did not create it
+    # action if the amount is <$10000 and they did not create it
     - actions: ["approve"]
       effect: EFFECT_ALLOW
       derivedRoles:
@@ -66,8 +81,16 @@ resourcePolicy:
         match:
           all:
             of:
+              - expr: request.resource.attr.amount < 50000
               - expr: request.resource.attr.ownerId != request.principal.id
               - expr: request.resource.attr.status == "OPEN"
+
+    # A `principal` that belongs to "FINANCE_MANAGER" role is allowed to perform "delete"
+    # action.
+    - actions: ["delete"]
+      effect: EFFECT_ALLOW
+      derivedRoles:
+        - FINANCE_MANAGER
 
     # A `principal` that owns the resource, with the status of OPEN and created
     # within the last hour can perform the "delete"

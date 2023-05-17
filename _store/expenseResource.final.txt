@@ -18,13 +18,12 @@ resourcePolicy:
         - ADMIN
 
     # A `principal` that belongs to any of these groups "OWNER", "FINANCE" or
-    # "REGION_MANAGER" is allowed to perform action "view".
+    # allowed to perform action "view".
     - actions: ["view"]
       effect: EFFECT_ALLOW
       derivedRoles:
         - OWNER
         - FINANCE
-        - REGION_MANAGER
 
     # A `principal` that belongs to any of these groups "OWNER" or "FINANCE" is
     # allowed to view the approver field via "view:approver" action.

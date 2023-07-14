@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-docker run --rm --name cerbos -i -t \
+docker run --rm -i -t \
   -p 3592:3592 -p 3593:3593 \
   -v /tmp -v /.cache \
   -e CERBOS_CLOUD_BUNDLE="latest" \

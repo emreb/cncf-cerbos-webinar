@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-docker run --rm --name cerbos-2 -i -t \
+docker run --rm -i -t \
   -v /tmp -v /.cache \
   -e CERBOS_CLOUD_BUNDLE="next" \
   -e CERBOS_CLOUD_SECRET_KEY="CERBOS-1G8HE6FLTFV5H-85EHC9DWLM4ESATXJHMYVWYKF5XZC3NUZZK2XYPV96Y4QRKFYPSSJUY08S" \

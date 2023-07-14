@@ -4,3 +4,5 @@ labels:
     branch: main
   v2.0:
     tag: v2.0
+  v2:
+    tag: v2.0

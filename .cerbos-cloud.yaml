@@ -4,4 +4,6 @@ labels:
     branch: main
   testing:
     branch: test
+  next:
+    branch: next
   

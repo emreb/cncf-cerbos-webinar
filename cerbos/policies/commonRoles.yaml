@@ -8,7 +8,7 @@ derivedRoles:
   definitions:
     # If the principal belongs to group `USER` in a request, and the `resource`s
     # `ownerId` attribute matches `principal`s `id` then the `principal` is considered
-    # as `OWNER` within Cerbos for the policy evaluation.
+    # as `OWNER` within Cerbos for the policy evaluation. 
     - name: OWNER
       parentRoles: ["USER"]
       condition:
